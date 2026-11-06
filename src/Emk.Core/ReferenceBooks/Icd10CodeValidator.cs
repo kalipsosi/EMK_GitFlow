@@ -10,6 +10,7 @@ public static class Icd10CodeValidator
 
     public static bool IsValid(string code, Icd10Reference reference) =>
         !string.IsNullOrWhiteSpace(code)
+        && code.Length <= 8
         && Format.IsMatch(code.Trim().ToUpperInvariant())
         && reference.Contains(code);
 }
